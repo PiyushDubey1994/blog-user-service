@@ -1,0 +1,59 @@
+#akeyless:
+#  api-url: https://api.akeyless.io
+#  access-token: t-f8ff53d7678719f7334bf022e52ffb67
+#  secret-path: /blog/blog-site-key
+
+spring:
+  application:
+    name: BLOG-USER-SERVICE
+
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/myblogs
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      idle-timeout: 30000
+      max-lifetime: 1800000
+      connection-timeout: 30000
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
+
+server:
+  port: ${port:8083}
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8081/eureka/
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+
+
+
