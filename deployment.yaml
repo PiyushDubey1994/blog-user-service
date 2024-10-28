@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blogsite-blog-service
+  labels:
+    app: blogsite-blog-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blogsite-blog-service
+  template:
+    metadata:
+      labels:
+        app: blogsite-blog-service
+    spec:
+      containers:
+        - name: blogsite-blog-service
+          image: piyushdubey1994/blogsite-blog-service:tagversion
+          ports:
+            - containerPort: 8082
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: blogsite-blog-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: blogsite-blog-service
+  ports:
+    - protocol: TCP
+      port: 83
+      targetPort: 8083

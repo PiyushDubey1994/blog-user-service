@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.blogsite</groupId>
-	<artifactId>blog-user-service</artifactId>
+	<artifactId>blogsite-blog-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>blog-user-service</name>
+	<name>blogsite-blog-service</name>
 	<description>Blog crud operation</description>
 	<properties>
 		<java.version>17</java.version>
