@@ -31,7 +31,7 @@ public class PostBlogServiceImpl implements PostBlogService {
     @Autowired
     private RestTemplate restTemplate;
 
-    private final String USER_SERVICE_URL = "http://35.238.132.45:82/api/v1.0/blogsite/auth/user/";
+    private final String USER_SERVICE_URL = "http://34.70.118.87:80/api/v1.0/blogsite/auth/user/";
 
     @Override
     public PostBlog createPost(PostBlog post, String token) {
