@@ -42,6 +42,7 @@ public class PostBlogController {
 //    }
     @PostMapping("/add")
     public ResponseEntity<?> createPost(@Valid @RequestBody PostBlog post, @RequestHeader("Authorization") String token) {
+        logger.info("Access Token :->>",token);
         return postService.createPost(post, token) != null
                 ? ResponseEntity.ok(new MessageResponse("Blog created successfully"))
                 : ResponseEntity.badRequest().body(new MessageResponse("Failed to create blog"));
